@@ -1,5 +1,8 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+
+Bureaucrat::Bureaucrat() : _name("BureaucratX")
+{}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)  : _name(name)
 {
@@ -11,9 +14,19 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)  : _name(name)
 	std::cout << _name << " created" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
+{}
+
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << _name << " destroyed" << std::endl;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
+{
+	if (this != &other)
+		_grade = other._grade;
+	return (*this);
 }
 
 int Bureaucrat::getGrade() const
@@ -40,16 +53,16 @@ void Bureaucrat::decrementGrade(int amount)
 	_grade += amount;
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& aform)
 {
 	try
 	{
-		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName() << std::endl;
+		aform.beSigned(*this);
+		std::cout << _name << " signed " << aform.getName() << std::endl;
 	}
 	catch (std::exception& value)
 	{
-		std::cout << _name << " couldn't sign " << form.getName()
+		std::cout << _name << " couldn't sign " << aform.getName()
 				<< " because " << value.what() << std::endl;
 	}
 }

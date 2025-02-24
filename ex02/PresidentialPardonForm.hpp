@@ -10,7 +10,6 @@ class PresidentialPardonForm : public AForm
 	private:
         int _requiredSign;
         int _requiredExec;
-        
 
 	public:
 

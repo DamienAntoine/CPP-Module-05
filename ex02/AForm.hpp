@@ -10,13 +10,19 @@ class AForm
 {
 	private:
 		const std::string _name;
-		bool _signed;
 		const int _signGrade;
 		const int _execGrade;
 
+	protected:
+		bool _signed;
+
 	public:
+		AForm();
 		AForm(const std::string name, const int signGrade, const int execgrade);
+		AForm(const AForm &other);
 		~AForm();
+
+		AForm& operator=(const AForm &other);
 
 		class GradeTooHigh : public std::exception{
 			public:
@@ -27,10 +33,11 @@ class AForm
 				virtual const char *what() const throw();
 		};
 
-		std::string getName() const;
+		std::string		getName() const;
 		virtual bool	getSigned() const;
 		virtual int		getSignGrade() const;
 		virtual int		getExecGrade() const;
+
 		virtual void	beSigned(const Bureaucrat &bureaucrat);
 };
 

@@ -3,6 +3,13 @@
 
 int main()
 {
+/*
+	//will crash because no catch for incrementGrade throw
+	std::cout << "Experiment" << std::endl;
+	Bureaucrat test("test", 1);
+	test.incrementGrade(5);
+*/
+
 	try
 	{
 		std::cout << "--- Test 1: Valid Form Creation ---" << std::endl;

@@ -1,12 +1,12 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main()
 {
 	try
 	{
 		std::cout << "--- Test 1: Valid Form Creation ---" << std::endl;
-		Form form1("Tax Form", 50, 25);
+		AForm form1("Tax Form", 50, 25);
 		std::cout << form1 << std::endl;
 
 		std::cout << "\n--- Test 2: Bureaucrat Can Sign ---" << std::endl;
@@ -20,11 +20,11 @@ int main()
 		std::cout << ryan << std::endl;
 		ryan.signForm(form1);
 	}
-	catch (const Form::GradeTooHigh& e)
+	catch (const AForm::GradeTooHigh& e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
-	catch (const Form::GradeTooLow& e)
+	catch (const AForm::GradeTooLow& e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
@@ -32,18 +32,18 @@ int main()
 	std::cout << "\n--- Test 4: Invalid Form Creation ---" << std::endl;
 	try
 	{
-		Form form2("Invalid Form", 0, 25);
+		AForm form2("Invalid Form", 0, 25);
 	}
-	catch (const Form::GradeTooHigh& e)
+	catch (const AForm::GradeTooHigh& e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
 
 	try
 	{
-		Form form3("Invalid Form", 50, 151);
+		AForm form3("Invalid Form", 50, 151);
 	}
-	catch (const Form::GradeTooLow& e)
+	catch (const AForm::GradeTooLow& e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}

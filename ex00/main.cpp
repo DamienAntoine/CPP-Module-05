@@ -11,7 +11,7 @@ int main()
 		std::cout << jim << std::endl;
 
 		std::cout << "\n--- Test 2: ---" << std::endl;
-		jim.incrementGrade(15); // Should throw
+		jim.incrementGrade(15);
 	}
 
 	catch (const Bureaucrat::GradeTooHigh& value)

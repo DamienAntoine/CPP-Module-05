@@ -1,6 +1,9 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+Form::Form() : _name("FormX"), _signed(0), _signGrade(1), _execGrade(1)
+{}
+
 Form::Form(const std::string name, const int signGrade, const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
 {
 	if (signGrade < 1 || execGrade < 1)
@@ -12,9 +15,21 @@ Form::Form(const std::string name, const int signGrade, const int execGrade) : _
 	std::cout << _name << " form created." << std::endl;
 }
 
+Form::Form(const Form& other) : _name(other._name), _signed(other._signed), _signGrade(other._signGrade), _execGrade(other._execGrade)
+{}
+
 Form::~Form()
 {
 	std::cout << this->_name << " destroyed." << std::endl;
+}
+
+Form& Form::operator=(const Form &other)
+{
+	if (this != &other)
+	{
+		_signed = other._signed;
+	}
+	return (*this);
 }
 
 std::string Form::getName() const
