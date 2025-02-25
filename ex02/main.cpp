@@ -1,52 +1,69 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include <iostream>
 
 int main()
 {
 	try
 	{
-		std::cout << "--- Test 1: Valid Form Creation ---" << std::endl;
-		AForm form1("Tax Form", 50, 25);
-		std::cout << form1 << std::endl;
+		Bureaucrat boss("Boss", 1);
+		Bureaucrat intern("Intern", 140);
 
-		std::cout << "\n--- Test 2: Bureaucrat Can Sign ---" << std::endl;
-		Bureaucrat andy("Andy", 45);
-		std::cout << andy << std::endl;
-		andy.signForm(form1);
-		std::cout << form1 << std::endl;
+		try
+		{
+			Bureaucrat invalid("Invalid", 151);
+			std::cout << invalid.getName() << " created successfully." << std::endl;
+		}
+		catch (const std::exception& e) {
+			std::cout << "Failed to create invalid bureaucrat: " << e.what() << std::endl;
+		}
 
-		std::cout << "\n--- Test 3: Bureaucrat Cannot Sign ---" << std::endl;
-		Bureaucrat ryan("Ryan", 100);
-		std::cout << ryan << std::endl;
-		ryan.signForm(form1);
+		ShrubberyCreationForm shrub("Garden");
+		RobotomyRequestForm robot("Bender");
+		PresidentialPardonForm pardon("Criminal");
+		std::cout << std::endl;
+		// Sign forms
+		boss.signForm(shrub);
+		intern.signForm(shrub);
+
+		std::cout << std::endl;
+
+		boss.signForm(robot);
+		intern.signForm(robot);
+
+		std::cout << std::endl;
+
+		boss.signForm(pardon);
+		intern.signForm(pardon);
+
+		std::cout << std::endl;
+
+		// Execute forms
+		boss.execForm(shrub);
+		intern.execForm(shrub);
+		std::cout << std::endl;
+		boss.execForm(robot);
+		intern.execForm(robot);
+		std::cout << std::endl;
+		boss.execForm(pardon);
+		intern.execForm(pardon);
+		std::cout << std::endl;
 	}
+
 	catch (const AForm::GradeTooHigh& e)
 	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "GradeTooHigh exception: " << e.what() << std::endl;
 	}
 	catch (const AForm::GradeTooLow& e)
 	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "GradeTooLow exception: " << e.what() << std::endl;
 	}
-
-	std::cout << "\n--- Test 4: Invalid Form Creation ---" << std::endl;
-	try
+	catch (const std::exception& e)
 	{
-		AForm form2("Invalid Form", 0, 25);
+		std::cout << "Other exception: " << e.what() << std::endl;
 	}
-	catch (const AForm::GradeTooHigh& e)
-	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
-
-	try
-	{
-		AForm form3("Invalid Form", 50, 151);
-	}
-	catch (const AForm::GradeTooLow& e)
-	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
-
-	return (0);
+	return 0;
 }

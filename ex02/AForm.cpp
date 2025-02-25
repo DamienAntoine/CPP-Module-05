@@ -1,7 +1,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : _name("AForm"), _signed(0), _signGrade(0), _execGrade(0)
+AForm::AForm() : _name("AForm"), _signGrade(0), _execGrade(0), _signed(0)
 {}
 
 AForm::AForm(const std::string name, const int signGrade, const int execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
@@ -12,16 +12,13 @@ AForm::AForm(const std::string name, const int signGrade, const int execGrade) :
 		throw GradeTooLow();
 
 	_signed = 0;
-	std::cout << _name << " form created." << std::endl;
 }
 
-AForm::AForm(const AForm &other) : _name(other._name), _signed(other._signed), _signGrade(other._signGrade), _execGrade(other._execGrade)
+AForm::AForm(const AForm &other) : _name(other._name), _signGrade(other._signGrade), _execGrade(other._execGrade), _signed(other._signed)
 {}
 
 AForm::~AForm()
-{
-	std::cout << this->_name << " destroyed." << std::endl;
-}
+{}
 
 AForm& AForm::operator=(const AForm &other)
 {
@@ -60,12 +57,12 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 
 const char* AForm::GradeTooHigh::what() const throw()
 {
-	return ("Form grade too high!");
+	return ("grade too high!");
 }
 
 const char* AForm::GradeTooLow::what() const throw()
 {
-	return ("Form grade too low!");
+	return ("grade too low!");
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &aform)

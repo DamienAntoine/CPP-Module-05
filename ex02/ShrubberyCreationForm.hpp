@@ -7,10 +7,13 @@
 
 class ShrubberyCreationForm : public AForm
 {
+	private:
+		std::string _target;
+
 	public:
-		ShrubberyCreationForm() : AForm("default", 145, 137){}
-		ShrubberyCreationForm(const std::string &target) : AForm(target, 145, 137){}
-		ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other){}
+		ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137), _target("") {}
+		ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation Form", 145, 137), _target(target) {}
+		ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), _target(other._target) {}
 		~ShrubberyCreationForm(){}
 
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
@@ -25,8 +28,9 @@ class ShrubberyCreationForm : public AForm
 				virtual const char *what() const throw();
 		};
 
-		virtual void	beSigned(const Bureaucrat &bureaucrat);
-		void			execForm(const Bureaucrat &bureaucrat);
+		virtual void		beSigned(const Bureaucrat &bureaucrat);
+		const std::string	getTarget() const;
+		virtual void		execForm(const Bureaucrat &bureaucrat) const;
 };
 
 #endif

@@ -39,6 +39,7 @@ class AForm
 		virtual int		getExecGrade() const;
 
 		virtual void	beSigned(const Bureaucrat &bureaucrat);
+		virtual void	execForm(const Bureaucrat &bureaucrat) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& aform);

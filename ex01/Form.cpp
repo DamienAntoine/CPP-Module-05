@@ -62,12 +62,12 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 
 const char* Form::GradeTooHigh::what() const throw()
 {
-	return ("Form grade too high!");
+	return ("grade too high!");
 }
 
 const char* Form::GradeTooLow::what() const throw()
 {
-	return ("Form grade too low!");
+	return ("grade too low!");
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form)

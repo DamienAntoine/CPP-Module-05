@@ -5,7 +5,10 @@
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
 	if (this != &other)
+	{
 		AForm::operator=(other);
+		this->_target = other._target;
+	}
 	return (*this);
 }
 
@@ -17,14 +20,18 @@ void	ShrubberyCreationForm::beSigned(const Bureaucrat &bureaucrat)
 		throw GradeTooLow();
 }
 
-void	ShrubberyCreationForm::execForm(const Bureaucrat &bureaucrat)
+void	ShrubberyCreationForm::execForm(const Bureaucrat &bureaucrat) const
 {
 	if (!this->getSigned())
+	{
 		throw NotSigned();
+	}
 	if (bureaucrat.getGrade() > this->getExecGrade())
+	{
 		throw GradeTooLow();
+	}
 
-		std::ofstream outfile((this->getName() + "_shrubbery").c_str());
+		std::ofstream outfile((getTarget() + "_shrubbery").c_str());
 		if (!outfile)
 			throw FileError();
 
@@ -50,4 +57,9 @@ const char *ShrubberyCreationForm::NotSigned::what() const throw()
 const char *ShrubberyCreationForm::FileError::what() const throw()
 {
 	return("Could not open file.");
+}
+
+const std::string	ShrubberyCreationForm::getTarget() const
+{
+	return (_target);
 }
