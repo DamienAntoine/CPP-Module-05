@@ -9,8 +9,8 @@ int main()
 {
 	try
 	{
-		Bureaucrat boss("Boss", 1);
-		Bureaucrat intern("Intern", 140);
+		Bureaucrat michael("Michael", 1);
+		Bureaucrat ryan("Ryan", 140);
 
 		try
 		{
@@ -22,34 +22,34 @@ int main()
 		}
 
 		ShrubberyCreationForm shrub("Garden");
-		RobotomyRequestForm robot("Bender");
-		PresidentialPardonForm pardon("Criminal");
+		RobotomyRequestForm robot("Dwight");
+		PresidentialPardonForm pardon("Jim");
 		std::cout << std::endl;
 		// Sign forms
-		boss.signForm(shrub);
-		intern.signForm(shrub);
+		michael.signForm(shrub);
+		ryan.signForm(shrub);
 
 		std::cout << std::endl;
 
-		boss.signForm(robot);
-		intern.signForm(robot);
+		michael.signForm(robot);
+		ryan.signForm(robot);
 
 		std::cout << std::endl;
 
-		boss.signForm(pardon);
-		intern.signForm(pardon);
+		michael.signForm(pardon);
+		ryan.signForm(pardon);
 
 		std::cout << std::endl;
 
 		// Execute forms
-		boss.execForm(shrub);
-		intern.execForm(shrub);
+		michael.execForm(shrub);
+		ryan.execForm(shrub);
 		std::cout << std::endl;
-		boss.execForm(robot);
-		intern.execForm(robot);
+		michael.execForm(robot);
+		ryan.execForm(robot);
 		std::cout << std::endl;
-		boss.execForm(pardon);
-		intern.execForm(pardon);
+		michael.execForm(pardon);
+		ryan.execForm(pardon);
 		std::cout << std::endl;
 	}
 
