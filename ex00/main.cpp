@@ -4,13 +4,13 @@ int main()
 {
 	try
 	{
-		std::cout << "--- Test 1: ---" << std::endl;
+		std::cout << "*** Test 1: ***" << std::endl;
 		Bureaucrat jim("Jim", 15);
 		std::cout << jim << std::endl;
 		jim.incrementGrade(5);
 		std::cout << jim << std::endl;
 
-		std::cout << "\n--- Test 2: ---" << std::endl;
+		std::cout << "\n*** Test 2: ***" << std::endl;
 		jim.incrementGrade(15);
 	}
 
@@ -28,13 +28,13 @@ int main()
 
 	try
 	{
-		std::cout << "--- Test 3: ---" << std::endl;
+		std::cout << "*** Test 3: ***" << std::endl;
 		Bureaucrat dwight("Dwight", 15);
 		std::cout << dwight << std::endl;
 		dwight.decrementGrade(100);
 		std::cout << dwight << std::endl;
 
-		std::cout << "\n--- Test 4: ---" << std::endl;
+		std::cout << "\n*** Test 4: ***" << std::endl;
 		dwight.decrementGrade(50);
 	}
 

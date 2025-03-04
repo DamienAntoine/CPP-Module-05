@@ -13,19 +13,19 @@ int main()
 	{
 		Bureaucrat michael("Michael", 1);
 
-		// valid forms tests
+		std::cout << "*** Test 1: Valid Form Creation ***" << std::endl;
 		AForm* shrubberyForm = someRandomIntern.makeForm("shrubbery creation", "Garden");
 		AForm* robotomyForm = someRandomIntern.makeForm("robotomy request", "Robot");
 		AForm* pardonForm = someRandomIntern.makeForm("presidential pardon", "Ryan");
 		std::cout << std::endl;
 
-		// invalid form test
+		std::cout << "*** Test 2: Invalid Form Creation ***" << std::endl;
 		AForm* invalidForm = someRandomIntern.makeForm("invalid request", "Employee");
 		if (invalidForm == NULL)
-			std::cout << "Invalid form was correctly not created" << std::endl;
+			std::cout << "Invalid form was not created" << std::endl;
 		std::cout << std::endl;
 
-		// testing created forms
+		std::cout << "*** Test 3: Testing Forms ***" << std::endl;
 		if (shrubberyForm)
 		{
 			michael.signForm(*shrubberyForm);
@@ -63,3 +63,19 @@ int main()
 	}
 	return 0;
 }
+
+/*
+//subject test:
+int main()
+{
+	Intern someRandomIntern;
+	AForm* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	if (rrf)
+	{
+		std::cout << "Form created: " << rrf->getName() << std::endl;
+		delete rrf;
+	}
+
+	return 0;
+}*/

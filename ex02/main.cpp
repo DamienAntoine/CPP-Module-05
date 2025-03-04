@@ -25,7 +25,8 @@ int main()
 		RobotomyRequestForm robot("Dwight");
 		PresidentialPardonForm pardon("Jim");
 		std::cout << std::endl;
-		// Sign forms
+
+		std::cout << "*** Test 1: Sign forms ***" << std::endl;
 		michael.signForm(shrub);
 		ryan.signForm(shrub);
 
@@ -41,7 +42,7 @@ int main()
 
 		std::cout << std::endl;
 
-		// Execute forms
+		std::cout << "*** Test 2: Execute forms ***" << std::endl;
 		michael.execForm(shrub);
 		ryan.execForm(shrub);
 		std::cout << std::endl;
