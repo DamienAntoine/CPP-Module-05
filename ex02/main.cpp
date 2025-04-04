@@ -43,14 +43,14 @@ int main()
 		std::cout << std::endl;
 
 		std::cout << "*** Test 2: Execute forms ***" << std::endl;
-		michael.execForm(shrub);
-		ryan.execForm(shrub);
+		michael.executeForm(shrub);
+		ryan.executeForm(shrub);
 		std::cout << std::endl;
-		michael.execForm(robot);
-		ryan.execForm(robot);
+		michael.executeForm(robot);
+		ryan.executeForm(robot);
 		std::cout << std::endl;
-		michael.execForm(pardon);
-		ryan.execForm(pardon);
+		michael.executeForm(pardon);
+		ryan.executeForm(pardon);
 		std::cout << std::endl;
 	}
 

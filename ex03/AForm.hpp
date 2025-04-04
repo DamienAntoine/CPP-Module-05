@@ -12,13 +12,14 @@ class AForm
 		const std::string _name;
 		const int _signGrade;
 		const int _execGrade;
+		std::string _target;
 
 	protected:
 		bool _signed;
 
 	public:
 		AForm();
-		AForm(const std::string name, const int signGrade, const int execgrade);
+		AForm(const std::string name, const int signGrade, const int execgrade, const std::string& target);
 		AForm(const AForm &other);
 		virtual ~AForm();
 
