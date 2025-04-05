@@ -14,17 +14,17 @@ Intern& Intern::operator=(const Intern& other)
 	return (*this);
 }
 
-static AForm* createShrubberyForm(std::string target)
+static AForm* createShrubberyForm(const std::string &target)
 {
 	return (new ShrubberyCreationForm(target));
 }
 
-static AForm* createRobotomyForm(std::string target)
+static AForm* createRobotomyForm(const std::string &target)
 {
 	return (new RobotomyRequestForm(target));
 }
 
-static AForm* createPresidentialForm(std::string target)
+static AForm* createPresidentialForm(const std::string &target)
 {
 	return (new PresidentialPardonForm(target));
 }
@@ -35,7 +35,7 @@ AForm* Intern::makeForm(std::string formName, const std::string &target)
 
 	std::string validNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
-	AForm* (*createForms[3])(std::string) =
+	AForm* (*createForms[3])(const std::string &) =
 	{
 		&createShrubberyForm, &createRobotomyForm, &createPresidentialForm
 	};

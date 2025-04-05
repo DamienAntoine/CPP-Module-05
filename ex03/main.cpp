@@ -29,7 +29,7 @@ int main()
 		if (shrubberyForm)
 		{
 			michael.signForm(*shrubberyForm);
-			michael.execForm(*shrubberyForm);
+			michael.executeForm(*shrubberyForm);
 			delete shrubberyForm;
 		}
 		std::cout << std::endl;
@@ -37,7 +37,7 @@ int main()
 		if (robotomyForm)
 		{
 			michael.signForm(*robotomyForm);
-			michael.execForm(*robotomyForm);
+			michael.executeForm(*robotomyForm);
 			delete robotomyForm;
 		}
 		std::cout << std::endl;
@@ -45,7 +45,7 @@ int main()
 		if (pardonForm)
 		{
 			michael.signForm(*pardonForm);
-			michael.execForm(*pardonForm);
+			michael.executeForm(*pardonForm);
 			delete pardonForm;
 		}
 	}

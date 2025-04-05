@@ -13,8 +13,6 @@ class AForm
 		const int _signGrade;
 		const int _execGrade;
 		std::string _target;
-
-	protected:
 		bool _signed;
 
 	public:
@@ -33,14 +31,22 @@ class AForm
 			public:
 				virtual const char *what() const throw();
 		};
+		class NotSigned : public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
 
-		std::string		getName() const;
-		virtual bool	getSigned() const;
-		virtual int		getSignGrade() const;
-		virtual int		getExecGrade() const;
+		std::string			getName() const;
+		const std::string	getTarget() const;
+		virtual bool		getSigned() const;
+		virtual int			getSignGrade() const;
+		virtual int			getExecGrade() const;
 
 		virtual void	beSigned(const Bureaucrat &bureaucrat);
-		virtual void	execForm(const Bureaucrat &bureaucrat) const = 0;
+		virtual void	execForm(const Bureaucrat &bureaucrat) const;
+
+	protected:
+		virtual void execute() const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& aform);
